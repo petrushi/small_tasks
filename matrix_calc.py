@@ -1,8 +1,4 @@
-# matrix transpose, sum, scale
-
-a = [[1, 2, 3], [-2, 0, -1]]
-b = [[10, 20, 30],[100, 200, 300]]
-
+# matrix transpose, sum, scale, mult
 
 def show(matrix):
     string_matrix = ''
@@ -32,6 +28,7 @@ def matrix_sum(matrix1, matrix2):
         res_matrix.append(row)
     return res_matrix
 
+
 def matrix_scale(matrix, sc):
     res_matrix = []
     for i in matrix:
@@ -41,7 +38,15 @@ def matrix_scale(matrix, sc):
         res_matrix.append(row)
     return res_matrix
 
-print(show(a))
-print(show(transpose(a)))
-print(show(matrix_sum(a,b)))
-print(show(matrix_scale(a, 2)))
+
+def mult_matrix(matrix1, matrix2):
+    res_matrix = []
+    for m in range(len(matrix1)):
+        row = []
+        for i in range(len(matrix1)):
+            elem = 0
+            for j in range(len(matrix1[0])):
+                elem += matrix1[m][j] * matrix2[j][i]
+            row.append(elem)
+        res_matrix.append(row)
+    return res_matrix
